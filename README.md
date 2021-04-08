@@ -9,7 +9,7 @@ gh repo clone pikachub2005/ScratchAPI-Python-Installer
 
 ## Then in another python file, type:
 ```python
-import os
-os.system("python Installer.py")
+import Installer
+Installer.Install
 ```
 And you're all set! Run the file, and you will get everything you need. A markdown file will appear telling you how to use it.
