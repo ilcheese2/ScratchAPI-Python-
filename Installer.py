@@ -11,6 +11,6 @@ def Install():
     file.write(js)
   with open("README.md","w") as file:
     file.write(md)
-  with open("scratch3api","w") as file:
+  with open("scratch3api.py","w") as file:
     file.write(py)
   os.remove("Installer.py")
