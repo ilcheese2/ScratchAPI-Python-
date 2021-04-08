@@ -1,6 +1,15 @@
 # ScratchAPI-Python-Installer
+##You have two options:
+###Download the .zip and extract the .py file. 
+or
+###Type 
+```shell
+gh repo clone pikachub2005/ScratchAPI-Python-Installer
+```
+in the shell.
 
-Download the installer. In another python file, type:
+
+In another python file, type:
 ```python
 import os
 os.system("python Installer.py")
