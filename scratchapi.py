@@ -1,7 +1,3 @@
-'''
-Will add:
-'''
-
 import os, json, requests, multiprocessing
 
 os.system('pip install scratchapi')
