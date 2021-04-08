@@ -7,7 +7,7 @@ or
 gh repo clone pikachub2005/ScratchAPI-Python-Installer
 ```
 
-##Then in another python file, type:
+## Then in another python file, type:
 ```python
 import os
 os.system("python Installer.py")
