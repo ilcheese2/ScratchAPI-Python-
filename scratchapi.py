@@ -13,9 +13,9 @@ class Scratch:
 			raise Exception('Login Failed.')
 		self.username=username
 		self.password=password
+		self.Log={}
 	def runJS():
-  	os.system("Cloud.js")
-	self.Log={}
+  		os.system("Cloud.js")
 	def GetVars(self, ProjID):
 		OldLog = self.Log
 		try:
