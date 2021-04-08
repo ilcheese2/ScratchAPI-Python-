@@ -15,9 +15,9 @@ class Scratch:
 	def GetVars(self, ProjID):
 		OldLog = self.Log
 		try:
-		self.Log = json.loads(requests.get("https://clouddata.scratch.mit.edu/logs?projectid="+str(self.ProjID)+"&limit=1000&offset=0").text)
+			self.Log = json.loads(requests.get("https://clouddata.scratch.mit.edu/logs?projectid="+str(self.ProjID)+"&limit=1000&offset=0").text)
 		except:
-		self.Log = OldLog
+			self.Log = OldLog
 		self.vars = {}
 		for x in range(0, len(self.log)):
 		y = self.log[x]
