@@ -9,14 +9,12 @@ follow someone
 unfollow someone
 '''
 
-
-
 import os, json, requests, multiprocessing
 
 class Scratch:
 	def runJS():
   	os.system("Cloud.js")
-  class Cloud:
+	class Cloud:
 		def __init__(self,username,password):
 			self.username=username
 			self.password=password
