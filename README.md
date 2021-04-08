@@ -11,12 +11,12 @@ scratch = Scratch('Username','Password')
 ## After Login
 There are several things you can do after you are signed in.
 
-* [`Cloud Variables`](#Cloud Variables)
+* [`Cloud`](#Cloud)
 * [`Following`](#Following)
 * [`Commenting`](#Commenting)
 
-### Cloud Variables
-<a name="Cloud Variables"></a>
+### Cloud
+<a name="Cloud"></a>
 To get a dictionary of the cloud variables and their values:
 ```python
 scratch.GetVars('Project ID')
@@ -34,7 +34,7 @@ scratch.SetVar('Project ID','Variable Name','Variable Value')
 <a name="Following"></a>
 ```python
 scratch.follow('user')
-scratch.unfollow('unfollow')
+scratch.unfollow('user')
 ```
 
 ### Commenting
