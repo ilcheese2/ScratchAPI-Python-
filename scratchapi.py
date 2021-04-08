@@ -28,23 +28,22 @@ class Scratch:
 		return GetVars(self, ProjID)[VarName]
 	def GetMessages(self,user):
 		s.users.get_message_count(user)
-	class Cloud:
-		def SetVar(self,ProjID,VarName,VarValue):
-			with open("communicate.txt", "w") as file:
-      				file.write(str(self.ProjId)+"\n"+self.username+"\n"+self.password+"\n☁ "+varName+"\n"+str(varValue))
-			process = multiprocessing.Process(target=runJS)
-			process.start()
-			while not str(self.GetVar(varName)) == str(varValue):
-				pass
-			process.terminate()
-		def Follow(self,user):
-			s.users.follow(user)
-		def Unfollow(self,user)
-			s.users.unfollow(user)
-		class Comment:
-			def Profile(self,user,comment):
-				s.users.comment(user,comment)
-			def Studio(self,StudioID,comment):
-				s.studios.comment(StudioID,comment)
-			def Project(ProjID,comment):
-				s.projects.comment(ProjID,comment)
+	def SetVar(self,ProjID,VarName,VarValue):
+		with open("communicate.txt", "w") as file:
+			file.write(str(self.ProjId)+"\n"+self.username+"\n"+self.password+"\n☁ "+varName+"\n"+str(varValue))
+		process = multiprocessing.Process(target=runJS)
+		process.start()
+		while not str(self.GetVar(varName)) == str(varValue):
+			pass
+		process.terminate()
+	def Follow(self,user):
+		s.users.follow(user)
+	def Unfollow(self,user)
+		s.users.unfollow(user)
+	class Comment:
+		def Profile(self,user,comment):
+			s.users.comment(user,comment)
+		def Studio(self,StudioID,comment):
+			s.studios.comment(StudioID,comment)
+		def Project(ProjID,comment):
+			s.projects.comment(ProjID,comment)
