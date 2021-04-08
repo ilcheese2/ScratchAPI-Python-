@@ -20,9 +20,9 @@ class Scratch:
 			self.Log = OldLog
 		self.vars = {}
 		for x in range(0, len(self.log)):
-		y = self.log[x]
-		if not "☁ " in str(y["value"]) and not y["name"][2:] in self.vars:
-			self.vars.update({y["name"][2:]: y["value"]})
+			y = self.log[x]
+			if not "☁ " in str(y["value"]) and not y["name"][2:] in self.vars:
+				self.vars.update({y["name"][2:]: y["value"]})
 		return self.vars
 	def GetVar(self,ProjID,VarName):
 		return GetVars(self, ProjID)[VarName]
