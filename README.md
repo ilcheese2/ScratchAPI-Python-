@@ -37,7 +37,7 @@ scratch.follow('user')
 scratch.unfollow('unfollow')
 ```
 
-# Commenting
+### Commenting
 <a name="Commenting"></a>
 ```python
 scratch.Comment.Profile('user','comment')
@@ -45,5 +45,5 @@ scratch.Comment.Studio('Studio ID','comment')
 scratch.Comment.Project('Project ID','comment')
 ```
 
-## Credits
+### Credits
 Credit to [Classfied3D](https://scratch.mit.edu/users/Classfied3D/) for helping with the cloud manipulation.
