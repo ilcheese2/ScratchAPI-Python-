@@ -19,8 +19,8 @@ class Scratch:
 		except:
 			self.Log = OldLog
 		self.vars = {}
-		for x in range(0, len(self.log)):
-			y = self.log[x]
+		for x in range(0, len(self.Log)):
+			y = self.Log[x]
 			if not "☁ " in str(y["value"]) and not y["name"][2:] in self.vars:
 				self.vars.update({y["name"][2:]: y["value"]})
 		return self.vars
