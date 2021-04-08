@@ -1,6 +1,5 @@
 '''
 Will add:
-get message count
 '''
 
 import os, json, requests, multiprocessing
