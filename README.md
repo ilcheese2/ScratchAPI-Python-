@@ -4,8 +4,8 @@ A web API interface for [Scratch](https://scratch.mit.edu), written in [Python](
 * [`Getting Started`](#getStarted)
 * [`Future Updates`](#updates)
 
-## You have two options to get the files:
 <a name="getStarted"></a>
+## You have two options to get the files:
 ### Do it manually
 * Download the .zip and extract the files
 * Then upload the file into whatever you are running the file on (I recommend [Replit](https://replit.com))
