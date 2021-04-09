@@ -13,7 +13,7 @@ subprocess.call('git clone https://github.com/pikachub2005/ScratchAPI-Python-Ins
 ```
 Move the installer file into the same folder that the previous file is in.
 
-## Then run this:
+## Then run this after you have the file:
 ```python
 import Installer
 Installer.Install()
