@@ -1,14 +1,17 @@
 # ScratchAPI-Python-Installer
+A web API interface for [Scratch](https://scratch.mit.edu), written in [Python](https://www.python.org/).
+
 ## You have two options:
-### Download the .zip and extract the .py file. 
-If nessessary, upload the Installer to your system.
+### Do it manually
+Download the .zip and extract the Installer.py file. 
+Then upload the file into whatever you are running the file on (I recommend [Replit](https://replit.com))
 ## or
-### Run this
+### Run this in python
 ```python
 import subprocess
 subprocess.call('git clone https://github.com/pikachub2005/ScratchAPI-Python-Installer', shell = True)
 ```
-Put the installer file into the same folder that the previous file is in.
+Move the installer file into the same folder that the previous file is in.
 
 ## Then run this:
 ```python
