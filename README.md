@@ -16,3 +16,15 @@ import Installer
 Installer.Install()
 ```
 And you're all set! Run the file, and you will get everything you need. A markdown file will appear telling you how to use it.
+##Future Updates:
+* Scratch total project count
+* Info about individual users
+* Info about individual projects
+* Reading comments from profiles, projects, and studios
+* Accessing your "What's happening?" section
+* Projects you recently viewed
+* Projects you recently favorited
+* Projects you recently loved
+* Following/ Unfollowing a studio
+* Info about a users activity
+* Following/Unfollowing topics on the forums
