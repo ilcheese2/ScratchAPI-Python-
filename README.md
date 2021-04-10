@@ -1,6 +1,7 @@
 #  **scratch3api**
 
 A [python](www.python.com) interface for the [scratch](www.scratch.com) website
+## First Use
 
 ## Getting Information
 Class scratchapi3.Get has three subclasses:
