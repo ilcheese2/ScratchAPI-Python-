@@ -83,7 +83,7 @@ class Send:
     self.username=username
     self.password=password
     try:
-      scratch=scratchapi.ScratchUserSession(username,password)
+      self.scratch=scratchapi.ScratchUserSession(username,password)
     except:
       raise Exception('Scratch login failed.')
   def SetVar(self,projId,name,value):
