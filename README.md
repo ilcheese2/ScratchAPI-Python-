@@ -3,6 +3,13 @@
 A [python](www.python.com) interface for the [scratch](www.scratch.com) website
 ## First Use
 
+## Getting started
+The first time using the api, you need to run this:
+```python
+import os
+os.system('npm install scratch-api')
+```
+
 ## Getting Information
 Class scratchapi3.Get has four subclasses:
 ### User('username')
@@ -19,8 +26,9 @@ Example use:
 * `bio()` -The user's About Me text
 * `country()` -What the user has as his/her set country
 * `messages()` -How many new messages the user has
-* `projects(amount=5)` -A list with dictionaries of the users latest projects. The amount shown can be changed.
+* `projects()` -A list with dictionaries of the users latest projects.
 * `comment()` -Dictionary of the last comment on the profile
+* `favorites()` -The ids of the user's favorite projects
 ### Project('Project ID')
 Gets information about a project
 
@@ -82,8 +90,3 @@ These are used for following:
 Invite someone to a studio:
 * `invite('Studio ID','username')` -Invites the user to the studio with that id
 
-# Planned Updates
-* Reading your 'What's Happening' Section
-* Reading user activity
-* Finding projects a user recenty viewed, loved, or favorited
-* Following/Unfollowing forum topics
