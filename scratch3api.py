@@ -26,6 +26,13 @@ class Get:
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/messages/count')['count']
     def projects(self,amount=5):
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')[0:amount-1]
+    def comment(self):
+      Info=urlopen('https://scratch.mit.edu/site-api/comments/user/'+self.user).read().decode("utf-8")
+      Message=Info[Info.index('<div class="content">'):Info.index('<span class="time"')]
+      Message=Message[Message.index('>')+1:Message.index('/')-1]
+      Message=Message.strip()
+      Author=Info[Info.index('<a href="/users/')+16:Info.index('" id')]
+      return json.loads('{"Author":"'+Author+'","Message":"'+Message+'"}')
   class Project:
     def __init__(self,ProjID):
       self.Log={}
@@ -63,6 +70,13 @@ class Get:
         if not '☁ ' in str(y['value']) and not y['name'][2:]in self.vars:
           self.vars.update({y['name'][2:]: y['value']})
       return self.vars
+    def comment(self):
+      Info=urlopen('https://scratch.mit.edu/site-api/comments/project/'+str(self.ProjID)).read().decode("utf-8")
+      Message=Info[Info.index('<div class="content">'):Info.index('<span class="time"')]
+      Message=Message[Message.index('>')+1:Message.index('/')-1]
+      Message=Message.strip()
+      Author=Info[Info.index('<a href="/users/')+16:Info.index('" id')]
+      return json.loads('{"Author":"'+Author+'","Message":"'+Message+'"}')
   class Studio:
     def __init__(self,StudioID):
       self.StudioID=StudioID
