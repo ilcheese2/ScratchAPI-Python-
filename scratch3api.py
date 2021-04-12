@@ -1,43 +1,57 @@
 import os,json,requests,multiprocessing,scratchapi
 from urllib.request import urlopen
 
+os.system('npm install scratch-api')
+
 class Get:
+  
   def read(url):
     return json.loads(requests.get(url).text)
+  
   class User:
-    def __init__(self,user):
-      self.user=user
-      self.json=Get.read('https://api.scratch.mit.edu/users/'+user)
+    
+    def __init__(self, user):
+      self.user = user
+      self.json = Get.read('https://api.scratch.mit.edu/users/'+ user)
+      
     def id(self):
       return self.json['id']
+    
     def scratchteam(self):
+      
       return self.json['scratchteam']
     def joindate(self):
       return self.json['history']['joined']
+    
     def status(self):
       return self.json['status']
+    
     def bio(self):
       return self.json['bio']
+    
     def country(self):
       return self.json['country']
+    
     def messages(self):
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/messages/count')['count']
+    
     def projects(self):
-      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')
-      ids=[]
+      Info = Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')
+      ids = []
       for project in Info:
         ids.append(project['id'])
       return ids
     def comment(self):
-      Info=urlopen('https://scratch.mit.edu/site-api/comments/user/'+self.user).read().decode("utf-8")
-      Message=Info[Info.index('<div class="content">'):Info.index('<span class="time"')]
-      Message=Message[Message.index('>')+1:Message.index('/')-1]
-      Message=Message.strip()
-      Author=Info[Info.index('<a href="/users/')+16:Info.index('" id')]
+      Info = urlopen('https://scratch.mit.edu/site-api/comments/user/'+self.user).read().decode("utf-8")
+      Message = Info[Info.index('<div class="content">'):Info.index('<span class="time"')]
+      Message = Message[Message.index('>')+1:Message.index('/')-1]
+      Message = Message.strip()
+      Author = Info[Info.index('<a href="/users/')+16:Info.index('" id')]
       return json.loads('{"Author":"'+Author+'","Message":"'+Message+'"}')
+    
     def favorites(self):
-      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/favorites')
-      ids=[]
+      Info = Get.read('https://api.scratch.mit.edu/users/'+self.user+'/favorites')
+      ids = []
       for project in Info:
         ids.append(project['id'])
       return ids
@@ -103,7 +117,7 @@ class Send:
     except:
       raise Exception('Scratch login failed.')
   def SetVar(self,projId,name,value):
-    Info=[str(projId),'"'+self.username+'"','"'+self.password+'"','"☁ '+name+'"',str(value)]
+    Info = [str(projId),'"'+self.username+'"','"'+self.password+'"','"☁ '+name+'"',str(value)]
     with open('new.js','w') as file:
       file.write('''var fs = require('fs');
 var scratch = require('scratch-api');
