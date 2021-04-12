@@ -1,8 +1,6 @@
 import os,json,requests,multiprocessing,scratchapi
 from urllib.request import urlopen
 
-os.system('npm install scratch-api')
-
 class Get:
   def read(url):
     return json.loads(requests.get(url).text)
@@ -24,8 +22,12 @@ class Get:
       return self.json['country']
     def messages(self):
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/messages/count')['count']
-    def projects(self,amount=5):
-      return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')[0:amount-1]
+    def projects(self):
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')
+      ids=[]
+      for project in Info:
+        ids.append(project['id'])
+      return ids
     def comment(self):
       Info=urlopen('https://scratch.mit.edu/site-api/comments/user/'+self.user).read().decode("utf-8")
       Message=Info[Info.index('<div class="content">'):Info.index('<span class="time"')]
@@ -33,9 +35,15 @@ class Get:
       Message=Message.strip()
       Author=Info[Info.index('<a href="/users/')+16:Info.index('" id')]
       return json.loads('{"Author":"'+Author+'","Message":"'+Message+'"}')
+    def favorites(self):
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/favorites')
+      ids=[]
+      for project in Info:
+        ids.append(project['id'])
+      return ids
+
   class Project:
     def __init__(self,ProjID):
-      self.Log={}
       self.ProjID=ProjID
       self.json=Get.read('https://api.scratch.mit.edu/projects/'+str(ProjID))
     def title(self):
@@ -59,11 +67,7 @@ class Get:
     def favorites(self):
       return self.json['stats']['favorites']
     def cloud(self):
-      OldLog = self.Log
-      try:
-        self.Log = Get.read('https://clouddata.scratch.mit.edu/logs?projectid='+str(self.ProjID)+'&limit=1000&offset=0')
-      except:
-        self.Log = OldLog
+      self.Log = Get.read('https://clouddata.scratch.mit.edu/logs?projectid='+str(self.ProjID)+'&limit=1000&offset=0')
       self.vars = {}
       for x in range(len(self.Log)):
         y = self.Log[x]
@@ -89,8 +93,6 @@ class Get:
       return self.json['history']['created']
     def modified(self):
       return self.json['history']['modified']
-    def followers(self):
-      return self.json['stats']['followers']
 
 class Send:
   def __init__(self,username,password):
